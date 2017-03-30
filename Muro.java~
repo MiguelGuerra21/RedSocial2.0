@@ -1,0 +1,59 @@
+import java.util.ArrayList;
+/**
+ * Write a description of class Muro here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Muro
+{
+    private ArrayList<Entrada> entradas;
+
+    /**
+     * Constructor for objects of class Muro
+     */
+    public Muro()
+    {
+        entradas = new ArrayList<>();
+    }
+
+    public void addEntrada(Entrada entrada){
+        entradas.add(entrada);
+    }
+
+    public String toString(){
+        String cadenaAMostrar = "";
+        for(Entrada entradaActual : entradas){
+            cadenaAMostrar += entradaActual.toString();
+        }
+        return cadenaAMostrar;
+    }
+
+    public void mostrar(){
+        System.out.println(this);
+    }
+
+    public void verCantidadDatosPorEntrada(){
+        for(Entrada entradaActual : entradas){
+            System.out.println(entradaActual.getCantidadDeDatosAsociadosALaEntrada());
+        }
+    }
+
+    public void mostrarDatosExclusivosEntradasFiltradas(String tipoEntrada ,String autor){
+        for(Entrada entradaActual : entradas){
+            if(entradaActual.getUsuario().equals(autor) || autor == null ){                 //Comprueba que el autor sea el de la entrada o null
+                switch(entradaActual.getClass().getSimpleName()){                           //Cambia la Entrada al tipo que sea y invoca el metodo mostrarDatosExclusivos
+                    case "EntradaTexto":
+                    ((EntradaTexto) entradaActual).mostrarDatosExclusivos();
+                    break;
+                    case "EntradaFoto":
+                    ((EntradaFoto) entradaActual).mostrarDatosExclusivos(); 
+                    break;
+                    case "EntradaUnionAGrupo":
+                    ((EntradaUnionAGrupo) entradaActual).mostrarDatosExclusivos();
+                    break;
+                }
+            }
+        }
+    }
+}

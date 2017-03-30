@@ -1,0 +1,18 @@
+*{
+     font-family:verdana;
+}
+img{
+	width : 80;
+}
+h1{
+	text-align: center;
+	
+}
+body{
+     background-color: red;
+}
+p{
+     font-size: 16;
+     color: black;
+     font-style: italic;
+}

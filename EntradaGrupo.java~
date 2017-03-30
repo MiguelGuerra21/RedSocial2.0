@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+/**
+ * Write a description of class Entrada here.
+import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+/**
+ * Write a description of class EntradaTexto here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class EntradaGrupo
+{
+    private String usuario;
+    private LocalDateTime momentoPublicacion;
+    private int cantidadMeGusta;
+
+    /**
+     * Constructor
+     */
+    public EntradaGrupo(String user)
+    {
+        usuario = user;
+        momentoPublicacion = LocalDateTime.now();
+        cantidadMeGusta = 0;
+    }
+
+    public void meGusta(){
+        cantidadMeGusta++;
+    }
+
+    public void addComentario(String text){         
+        comentarios.add(text);
+    }
+    
+    public LocalDateTime getMomentoPublicacion(){
+        return momentoPublicacion;
+    }
+    
+    public int getMeGusta(){
+        return cantidadMeGusta;
+    }
+
+    public String getUsuario(){
+        return usuario; 
+    }
+}
