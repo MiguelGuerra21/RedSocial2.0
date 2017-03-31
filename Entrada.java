@@ -12,7 +12,7 @@ import java.time.temporal.ChronoUnit;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Entrada
+public abstract class Entrada
 {
     private String usuario;
     private LocalDateTime momentoPublicacion;
@@ -59,7 +59,5 @@ public class Entrada
         return cadenaCompleta;
     }
     
-    public int getCantidadDeDatosAsociadosALaEntrada(){
-        return 0;
-    }
+    public abstract int getCantidadDeDatosAsociadosALaEntrada();
 }

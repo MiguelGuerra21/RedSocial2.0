@@ -12,7 +12,7 @@ import java.time.temporal.ChronoUnit;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class EntradaComentarios extends Entrada
+public  abstract class EntradaComentarios extends Entrada
 {
     private ArrayList<String> comentarios;
 
