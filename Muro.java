@@ -1,11 +1,10 @@
-import java.util.ArrayList;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.io.BufferedWriter;
-import java.nio.file.Files;
-import java.io.IOException;
+import java.util.*;
+import java.nio.*;
+import java.io.*;
 import java.awt.Desktop;
-import java.lang.Runtime;
+import java.lang.*;
+import java.net.*;
+import java.nio.file.*;
 /**
  * Write a description of class Muro here.
  * 
@@ -99,6 +98,30 @@ public class Muro
         }
         catch(IOException excepcion){
             System.out.println(excepcion.toString());
+        }
+    }
+    
+    public void mostrarMuroEnNavegador2(String usuario){
+        try{
+            URL rutaArchivo = new URL("https://script.google.com/macros/s/AKfycbzHc3p1twTfyF7o0_cxSwnxSsyOemuHnSu406ly9DZIf5Ck2BA/exec" + "?user=" + usuario);
+            Scanner sc = new Scanner(rutaArchivo.openStream());
+            while(sc.hasNextLine()){
+                String lineaLeida = sc.nextLine();
+                String[] particion = lineaLeida.split(";");
+                if(particion[0].equals("EntradaTexto")){
+                    EntradaTexto entradat = new EntradaTexto(particion[1], particion[4]);
+                }
+                if(particion[0].equals("EntradaFoto")){
+                    EntradaFoto entradaf = new EntradaFoto(particion[1], particion[4], particion[5]);
+                }
+                if(particion[0].equals("EntradaUnionAGrupo")){
+                    EntradaUnionAGrupo entradau = new EntradaUnionAGrupo(particion[1], particion[4]);
+                }
+                System.out.println(lineaLeida);
+            }
+        }
+        catch(Exception excepcion){
+            excepcion.printStackTrace();
         }
     }
 }
